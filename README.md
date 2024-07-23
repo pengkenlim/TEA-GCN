@@ -1,6 +1,7 @@
+
+![Artboard 1Fig4](https://github.com/user-attachments/assets/797833fc-6649-4b44-b65a-dc288b32027d)
+
 ## Two-Tier Ensemble Aggregation Gene Co-expression Network (TEA-GCN)
-
-
 
 
 ### What does this pipeline do?
