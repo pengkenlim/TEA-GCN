@@ -10,10 +10,10 @@
 This pipeline generates high-quality Gene Co-expression Networks (TEA-GCN ) that capture tissue/condition-specific co-expression.
 
 ## Navigation
-* [Generate TEA-GCN from your transcriptomic dataset](https://github.com/pengkenlim/TEA-GCN/edit/main/README.md#generate-tea-gcn-from-your-transcriptomic-dataset)
-  * [Step 1. Setting up](https://github.com/pengkenlim/TEA-GCN/edit/main/README.md#step-1-setting-up)
-  * [Step 2. Generating partitions for your dataset](https://github.com/pengkenlim/TEA-GCN/edit/main/README.md#step-2-generating-partitions-for-your-dataset)
-  * [Step 3. Building TEA-GCN](https://github.com/pengkenlim/TEA-GCN/edit/main/README.md#step-3-building-tea-gcn)
+* [Generate TEA-GCN from your transcriptomic dataset](https://github.com/pengkenlim/TEA-GCN/tree/main?tab=readme-ov-file#generate-tea-gcn-from-your-transcriptomic-dataset)
+  * [Step 1. Setting up](https://github.com/pengkenlim/TEA-GCN/tree/main?tab=readme-ov-filed#step-1-setting-up)
+  * [Step 2. Generating partitions for your dataset](https://github.com/pengkenlim/TEA-GCN/tree/main?tab=readme-ov-file#step-2-generating-partitions-for-your-dataset)
+  * [Step 3. Building TEA-GCN](https://github.com/pengkenlim/TEA-GCN/tree/main?tab=readme-ov-file#step-3-building-tea-gcn)
   * [Step 3. Post-processing TEA-GCN](www.google.com)
     
 * [Gene Function Prediction using TEA-GCN](www.google.com)
@@ -21,7 +21,7 @@ This pipeline generates high-quality Gene Co-expression Networks (TEA-GCN ) that
   * [Step 2. Prepare functional annotation gene sets](www.google.com)
   * [Step 2. GSEA using Google colab notebook](www.google.com)
     
-* [Discover experimental contexts underpinning TEA-GCN co-expression edges](https://github.com/pengkenlim/TEA-GCN/edit/main/README.md#discover-experimental-contexts-underpinning-tea-gcn-co-expression-edges)
+* [Discover experimental contexts underpinning TEA-GCN co-expression edges](https://github.com/pengkenlim/TEA-GCN/tree/main?tab=readme-ov-file#discover-experimental-contexts-underpinning-tea-gcn-co-expression-edges)
   * [Step 1. Generating Partition Rankings for your edges-of-interest](www.google.com)
   * [Step 2. Annotating Partitions with overrepresented lemmas](www.google.com)
   * [Step 3. Experimental context discovery using Google colab notebook](www.google.com)
