@@ -1,5 +1,6 @@
 
-![Artboard 1Fig4](https://github.com/user-attachments/assets/797833fc-6649-4b44-b65a-dc288b32027d)
+
+![Artboard 1Fig4](https://github.com/user-attachments/assets/f6dacda7-8e89-47d9-8bfd-8e129edee3e8| width=100)
 
 ## Two-Tier Ensemble Aggregation Gene Co-expression Network (TEA-GCN)
 
