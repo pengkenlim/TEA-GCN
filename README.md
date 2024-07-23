@@ -85,14 +85,14 @@ Run_TEA-GCN.py. Construct TEA-GCN from expression data (in the form of an expres
 
 options:
   -h, --help            show this help message and exit
-  -w , --workers        Number of workers for parallelization. Affects precalc of all coefficients. But only affects calc of bicor.
+  -w , --workers        Number of workers for parallelization. Affects precalc of all coefficients. But only affects the calc of bicor.
   -t , --threads        Number of threads for numpy linear algebra operations. Affects PCC and SCC calc.
   -o , --output_dir     Directory to output. Must be the same as for Generate_partitions.py
-  -de , --delimiter     Delimiter for expression matrix. -de="t" for tab seperated (.tsv). -de="c" for comma seperated (.csv). TSV by default.
+  -de , --delimiter     Delimiter for expression matrix. -de="t" for tab-separated (.tsv). -de="c" for comma-separated (.csv). TSV by default.
   -cc , --correlation_coefficient
                         select 'TEA' to enable Coefficient Aggregation. Select "PCC","SCC","bicor" for constructing Partition Aggregation-only GCN
   -am , --aggregation_method
-                        Default is RAvg.
+                        The default is RAvg.
   -k , --k_clusters     Number of clusters to partition the expression data. For k=0, will use best k as determined in Generate_partitions.py step
   -im , --input_matrix_path
                         Path of expression matrix to input
