@@ -1,7 +1,8 @@
-<img src="https://github.com/user-attachments/assets/682c7b18-fdc6-4353-bf35-28806b296484" alt="banner" width="600"/>
 
-# The TEA-GCN pipeline
-## TEA-GCN: Two-Tier Ensemble Aggregation Gene Co-expression Network 
+<img src="https://github.com/user-attachments/assets/682c7b18-fdc6-4353-bf35-28806b296484" alt="banner" width="600" />
+
+ ## TEA-GCN: Two-Tier Ensemble Aggregation Gene Co-expression Network 
+
 
 <img src="https://github.com/user-attachments/assets/f31ae18f-5846-49d7-b597-3234a7035ab2" alt="banner" width="800"/>
 
@@ -14,21 +15,27 @@ This pipeline generates high-quality Gene Co-expression Networks (TEA-GCN ) that
   * [Step 2. Generating partitions for your dataset](https://github.com/pengkenlim/TEA-GCN/edit/main/README.md#step-2-generating-partitions-for-your-dataset)
   * [Step 3. Building TEA-GCN](https://github.com/pengkenlim/TEA-GCN/edit/main/README.md#step-3-building-tea-gcn)
   * [Step 3. Post-processing TEA-GCN](www.google.com)
-*[Gene Function Prediction using TEA-GCN](www.google.com)
-  *[Step 1. Generating Co-expression Neighbourhood](www.google.com)
-  *[Step 2. Prepare functional annotation gene sets](www.google.com)
-  *[Step 2. GSEA using Google colab notebook](www.google.com)
-*[Discover experimental contexts underpinning TEA-GCN co-expression edges](www.google.com)
-  *[Step 1. Generating Partition Rankings for edges-of-interest](www.google.com)
-  *[Step 2. Annotating Partitions with overrepresented lemmas](www.google.com)
-  *[Step 3. Experimental context discovery using Google colab notebook](www.google.com)
+    
+* [Gene Function Prediction using TEA-GCN](www.google.com)
+  * [Step 1. Generating Co-expression Neighbourhoods of your genes-of-interest](www.google.com)
+  * [Step 2. Prepare functional annotation gene sets](www.google.com)
+  * [Step 2. GSEA using Google colab notebook](www.google.com)
+    
+* [Discover experimental contexts underpinning TEA-GCN co-expression edges](https://github.com/pengkenlim/TEA-GCN/edit/main/README.md#discover-experimental-contexts-underpinning-tea-gcn-co-expression-edges)
+  * [Step 1. Generating Partition Rankings for your edges-of-interest](www.google.com)
+  * [Step 2. Annotating Partitions with overrepresented lemmas](www.google.com)
+  * [Step 3. Experimental context discovery using Google colab notebook](www.google.com)
+    
 * [Evaluating TEA-GCN Performance](www.google.com)
-  *[Step 1. Preparing positive and negative edges](www.google.com)
-  *[Step 2. Calculating ROC and PRC performance](www.google.com)
+  * [Step 1. Preparing positive and negative edges](www.google.com)
+  * [Step 2. Calculating ROC and PRC performance](www.google.com)
 
 ## Generate TEA-GCN from your transcriptomic dataset
+
+<img  src="https://github.com/user-attachments/assets/1e2d62ab-5a93-484e-b0da-6406fc9d1122" alt="banner" width="500"/>
+
 ### Step 1. Setting up
-#### Clone repository to local machine
+#### Clone repository to your local machine
 ```
 $ git clone https://github.com/pengkenlim/TEA-GCN.git
 ```
@@ -88,6 +95,7 @@ options:
 ```
 
 ### Step 3. Building TEA-GCN
+
 After data partitioning, you can start building TEA-GCN by determining co-expression strength between every gene pair. Said co-expression strength is calculated based on measured correlation coefficients between genes from every dataset partition. For more information, refer to **INSERT DOI**.
 
 #### Simplest implementation
@@ -115,3 +123,25 @@ options:
   -im , --input_matrix_path
                         Path of expression matrix to input
 ```
+
+
+
+## Gene Function Prediction using TEA-GCN
+
+<img src="https://github.com/user-attachments/assets/af7a133e-bad2-4a72-852f-add13fb173bb" alt="banner"  width="700"/>
+
+
+
+
+### Step 1. Generating Co-expression Neighbourhoods of your genes-of-interest
+
+
+## Discover experimental contexts underpinning TEA-GCN co-expression edges
+
+<img  src="https://github.com/user-attachments/assets/bf40485c-768d-4eb7-be0f-4ed39530b884" alt="banner" width="700"/>
+
+### Step 1. Generating Partition Rankings for your edges-of-interest
+
+## Evaluating TEA-GCN Performance
+
+### Step 1. Preparing positive and negative edges
