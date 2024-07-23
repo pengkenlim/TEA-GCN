@@ -79,6 +79,7 @@ if __name__ == "__main__":
 
         print(f"Performing standardization of expression matrix and embedding samples in {pc_no} principal components...")
         pca_data , pc_variances = PCA.standardize_transform(expmat_df, n_pcs=pc_no)
+        geneids = list(expmat_df.index)
         del expmat_df
         print(f"PCA complete. {pc_no} PCs representing {sum(pc_variances)}% of variance retained. Writing PCA data to output..." )
         read_write.to_pickle(pca_data , os.path.join(sub_outdir,"PCA_data.pkl"))
@@ -101,6 +102,7 @@ if __name__ == "__main__":
         print(f"Writing k-means clustering data to output folder...")
         read_write.to_pickle(k_cluster_assignment_dict, os.path.join(sub_outdir,"k_cluster_assignment_dict.pkl"))
         read_write.to_pickle(silhouette_coefficients, os.path.join(sub_outdir, "silhouette_coefficients.pkl"))
+        read_write.to_pickle(geneids, os.path.join(sub_outdir, "geneids.pkl"))
         
         sc_report_path = os.path.join(sub_outdir, "silhouette_coefficients_across_k.tsv")
         with open(sc_report_path, "w") as fout:
@@ -111,4 +113,5 @@ if __name__ == "__main__":
         read_write.to_pickle(selected_k, os.path.join(sub_outdir,"selected_k.pkl"))
 
         print("Generate_partitions.py complete.")
+
 
