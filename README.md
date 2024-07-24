@@ -14,21 +14,21 @@ This pipeline generates high-quality Gene Co-expression Networks (TEA-GCN ) that
   * [Step 1. Setting up](https://github.com/pengkenlim/TEA-GCN/tree/main?tab=readme-ov-filed#step-1-setting-up)
   * [Step 2. Generating partitions for your dataset](https://github.com/pengkenlim/TEA-GCN/tree/main?tab=readme-ov-file#step-2-generating-partitions-for-your-dataset)
   * [Step 3. Building TEA-GCN](https://github.com/pengkenlim/TEA-GCN/tree/main?tab=readme-ov-file#step-3-building-tea-gcn)
-  * [Step 4. Post-processing TEA-GCN](www.google.com)
+  * [Step 4. Post-processing TEA-GCN](https://github.com/pengkenlim/TEA-GCN/tree/main?tab=readme-ov-file#step-4-post-processing-tea-gcn)
     
-* [Gene Function Prediction using TEA-GCN](www.google.com)
-  * [Step 1. Generating Co-expression Neighbourhoods of your genes-of-interest](www.google.com)
-  * [Step 2. Prepare functional annotation gene sets](www.google.com)
-  * [Step 3. GSEA using Google colab notebook](www.google.com)
+* [Gene Function Prediction using TEA-GCN](https://github.com/pengkenlim/TEA-GCN/tree/main?tab=readme-ov-file#gene-function-prediction-using-tea-gcn)
+  * [Step 1. Generating Co-expression Neighbourhoods of your genes-of-interest](https://github.com/pengkenlim/TEA-GCN/tree/main?tab=readme-ov-file#step-1-generating-co-expression-neighbourhoods-of-your-genes-of-interest)
+  * [Step 2. Prepare functional annotation gene sets](https://github.com/pengkenlim/TEA-GCN/)
+  * [Step 3. GSEA using Google colab notebook](https://github.com/pengkenlim/TEA-GCN/)
     
 * [Discover experimental contexts underpinning TEA-GCN co-expression edges](https://github.com/pengkenlim/TEA-GCN/tree/main?tab=readme-ov-file#discover-experimental-contexts-underpinning-tea-gcn-co-expression-edges)
-  * [Step 1. Generating Partition Rankings for your edges-of-interest](www.google.com)
-  * [Step 2. Annotating Partitions with overrepresented lemmas](www.google.com)
-  * [Step 3. Experimental context discovery using Google colab notebook](www.google.com)
+  * [Step 1. Generating Partition Rankings for your edges-of-interest](https://github.com/pengkenlim/TEA-GCN/tree/main?tab=readme-ov-file#step-1-generating-partition-rankings-for-your-edges-of-interest )
+  * [Step 2. Annotating Partitions with overrepresented lemmas](https://github.com/pengkenlim/TEA-GCN/)
+  * [Step 3. Experimental context discovery using Google colab notebook](https://github.com/pengkenlim/TEA-GCN/)
     
-* [Evaluating TEA-GCN Performance](www.google.com)
-  * [Step 1. Preparing positive and negative edges](www.google.com)
-  * [Step 2. Calculating ROC and PRC performance](www.google.com)
+* [Evaluating TEA-GCN Performance](https://github.com/pengkenlim/TEA-GCN/tree/main?tab=readme-ov-file#evaluating-tea-gcn-performance)
+  * [Step 1. Preparing positive and negative edges](https://github.com/pengkenlim/TEA-GCN/tree/main?tab=readme-ov-file#step-1-preparing-positive-and-negative-edges)
+  * [Step 2. Calculating ROC and PRC performance](https://github.com/pengkenlim/TEA-GCN/)
 
 ## Generate TEA-GCN from your transcriptomic dataset
 
