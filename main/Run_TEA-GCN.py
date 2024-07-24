@@ -12,11 +12,11 @@ import argparse
 
 if __name__ == "__main__":
         
-        parser= argparse.ArgumentParser(description="Run_TEA-GCN.py.\n\
-                                        Construct TEA-GCN from expression data (in the form of an expression matrix). Requires prior data partitioning using Generate_partitions.py in order to run.")
+        parser= argparse.ArgumentParser(description="Run_TEA-GCN.py. Construct TEA-GCN from expression data (in the form of an expression matrix). \
+                                        Requires prior data partitioning using Generate_partitions.py in order to run.")
         
         parser.add_argument("-w", "--workers", type=int, metavar="", default=8,
-        help = "Number of workers for parallelization. Affects precalc of all coefficients. But only affects calc of bicor." )
+        help = "Number of workers for parallelization. Affects precalc of all coefficients. But only affects the calc of bicor." )
         
         parser.add_argument("-t", "--threads", type=int, metavar="", default=8,
         help = "Number of threads for numpy linear algebra operations. Affects PCC and SCC calc." )
@@ -25,16 +25,16 @@ if __name__ == "__main__":
         help = "Directory to output. Must be the same as for Generate_partitions.py" )
 
         parser.add_argument("-de", "--delimiter", type= str, metavar="", default = "t", choices=["t", "c"],
-        help = "Delimiter for expression matrix. -de=\"t\" for tab seperated (.tsv). -de=\"c\" for comma seperated (.csv). TSV by default." )
+        help = "Delimiter for expression matrix. -de=\"t\" for tab-separated (.tsv). -de=\"c\" for comma separated (.csv). TSV by default." )
 
         parser.add_argument("-cc","--correlation_coefficient", type= str, metavar="", default = "TEA", choices=["PCC","SCC","bicor", "TEA"] ,
-        help = "select \'TEA\' to enable Coefficient Aggregation. Select \"PCC\",\"SCC\",\"bicor\" for constructing Partition Aggregation-only GCN" )
+        help = "Select \'TEA\' to enable Coefficient Aggregation. Select \"PCC\",\"SCC\",\"bicor\" for constructing Partition Aggregation-only GCN" )
 
         parser.add_argument("-am","--aggregation_method", type=str,  metavar="" , default = "RAvg", choices = ["Max","Avg","RAvg","RWA","RRWA"] ,
-        help = "Default is RAvg.")
+        help = "Default is RAvg. Other choices include \"Avg\", \"RWA\", and \"RRWA.\"")
 
         parser.add_argument("-k","--k_clusters", metavar="", type=int, default = 0,
-        help = "Number of clusters to partition the expression data. For k=0, will use best k as determined in Generate_partitions.py step")
+        help = "Number of clusters to partition the expression data. For k=0, will use best k as determined in Generate_partitions.py step.")
         
         parser.add_argument("-im", "--input_matrix_path", type=str, metavar="", required = True,
         help = "Path of expression matrix to input" )
