@@ -8,6 +8,7 @@ if __name__ == "__main__":
          sys.path.insert(0, parent_module)
 
 import argparse
+
 # import argparse to parse thread information so that we can set thread environment variable before importing numpy and sklearn modules
 if __name__ == "__main__":
         parser= argparse.ArgumentParser(description="Generate_partitions.py\n\
