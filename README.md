@@ -18,8 +18,7 @@ This pipeline generates high-quality Gene Co-expression Networks (TEA-GCN ) that
     
 * [Gene Function Prediction using TEA-GCN](https://github.com/pengkenlim/TEA-GCN/tree/main?tab=readme-ov-file#gene-function-prediction-using-tea-gcn)
   * [Step 1. Generating Co-expression Neighbourhoods of your genes-of-interest](https://github.com/pengkenlim/TEA-GCN/tree/main?tab=readme-ov-file#step-1-generating-co-expression-neighbourhoods-of-your-genes-of-interest)
-  * [Step 2. Prepare functional annotation gene sets](https://github.com/pengkenlim/TEA-GCN/)
-  * [Step 3. GSEA using Google colab notebook](https://github.com/pengkenlim/TEA-GCN/)
+  * [Step 2. GSEA using Google colab notebook](https://github.com/pengkenlim/TEA-GCN/)
     
 * [Discover experimental contexts underpinning TEA-GCN co-expression edges](https://github.com/pengkenlim/TEA-GCN/tree/main?tab=readme-ov-file#discover-experimental-contexts-underpinning-tea-gcn-co-expression-edges)
   * [Step 1. Generating Partition Rankings for your edges-of-interest](https://github.com/pengkenlim/TEA-GCN/tree/main?tab=readme-ov-file#step-1-generating-partition-rankings-for-your-edges-of-interest )
@@ -157,7 +156,26 @@ options:
 
 #### Data structure of Network
 
-to be added
+The resultant network is contained within a directory consisting of files that each describe edges connecting to each gene (source gene). The files are named after genes. 
+
+Example of one file:
+
+```
+$ less /path/to/<NETWORK_NAME>/AT5G65360.1
+```
+
+<img src="https://github.com/user-attachments/assets/bde075ec-7015-4661-9caf-6d477cb50c94" alt="banner"  width="600"/>
+
+Description of columns:
+
+* `Target`
+ * Describes the target gene of the edge 
+* `Co-exp_Str`
+ * Co-expression Strength of edge calculated by `Run_TEA-GCN.py`
+* `Co-exp_Str_MR`
+  * Co-expression Strength of edge transformed into Mutual Ranks (MR)
+* `zScore(Co-exp_Str_MR)`
+  * z-score standardized MR -- Helpful for cross-comparing GCNs
 
 ## Gene Function Prediction using TEA-GCN
 
@@ -187,7 +205,28 @@ options:
 
 #### Format of Co-expression Neighbourhood files
 
-To be added
+Example of one file:
+
+```
+$ less /path/to/output_directory/Co-exp_Neighbourhoods/AT5G65360.1
+```
+
+<img src="https://github.com/user-attachments/assets/31c0d11a-ccbc-4d8a-8f18-acad1c7e4899" alt="banner"  width="300"/>
+
+Description of columns:
+
+* `Target`
+ * Describes the target gene of the edge 
+* `Score`
+ * z-score standardized MR determined by `Rank_transform.py`
+* `Centered_rank`
+  * `Score` ranked inversely (higher values, have larger ranks) and centered (median rank = 0).
+
+### Step 2. GSEA using Google colab notebook
+
+Refer to the Colab notebook (linked below) to predict the biological function of your gene-of-interest based on their co-expression neighbourhood:
+
+[TEA-GCN_Function_pred_using_GSEA.ipynb](https://colab.research.google.com/drive/1Qjog6kc5QtVOl0Rdh8fhnZDVBF4sCz8h?usp=sharing)
 
 ## Discover experimental contexts underpinning TEA-GCN co-expression edges
 
@@ -195,6 +234,10 @@ To be added
 
 ### Step 1. Generating Partition Rankings for your edges-of-interest
 
+**COMING SOON**
+
 ## Evaluating TEA-GCN Performance
 
 ### Step 1. Preparing positive and negative edges
+
+**COMING SOON**
