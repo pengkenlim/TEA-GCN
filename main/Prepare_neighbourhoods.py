@@ -86,7 +86,3 @@ if __name__ == "__main__":
             for target, score, rank_centered in zip(targets, scores, ranks_centered):
                 fout.write(f"{target}\t{score}\t{int(rank_centered)}\n")
         print(f"Co-expression neighbourhood of {gene} generated.")
-                 
-
-
-        
