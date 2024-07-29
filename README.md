@@ -21,9 +21,10 @@ This pipeline generates high-quality Gene Co-expression Networks (TEA-GCN ) that
   * [Step 2. GSEA using Google colab notebook](https://github.com/pengkenlim/TEA-GCN/)
     
 * [Discover experimental contexts underpinning TEA-GCN co-expression edges](https://github.com/pengkenlim/TEA-GCN/tree/main?tab=readme-ov-file#discover-experimental-contexts-underpinning-tea-gcn-co-expression-edges)
-  * [Step 1. Generating Partition Rankings for your edges-of-interest](https://github.com/pengkenlim/TEA-GCN/tree/main?tab=readme-ov-file#step-1-generating-partition-rankings-for-your-edges-of-interest )
+  * [Step 1. Downloading Metadata of RNA-seq samples from the European Nucleotide Archive (ENA)](https://github.com/pengkenlim/TEA-GCN/)
   * [Step 2. Annotating Partitions with overrepresented lemmas](https://github.com/pengkenlim/TEA-GCN/)
-  * [Step 3. Experimental context discovery using Google colab notebook](https://github.com/pengkenlim/TEA-GCN/)
+  * [Step 3. Generating Partition Rankings for your edges-of-interest](https://github.com/pengkenlim/TEA-GCN/)
+  * [Step 4. Experimental context discovery using Google colab notebook](https://github.com/pengkenlim/TEA-GCN/)
     
 * [Evaluating TEA-GCN Performance](https://github.com/pengkenlim/TEA-GCN/tree/main?tab=readme-ov-file#evaluating-tea-gcn-performance)
   * [Step 1. Preparing positive and negative edges](https://github.com/pengkenlim/TEA-GCN/tree/main?tab=readme-ov-file#step-1-preparing-positive-and-negative-edges)
@@ -232,9 +233,47 @@ Refer to the Colab notebook (linked below) to predict the biological function of
 
 <img  src="https://github.com/user-attachments/assets/bf40485c-768d-4eb7-be0f-4ed39530b884" alt="banner" width="700"/>
 
-### Step 1. Generating Partition Rankings for your edges-of-interest
+### Step 1. Downloading Metadata of RNA-seq samples from the European Nucleotide Archive (ENA)
 
-**COMING SOON**
+This script downloads the metadata of RNA-seq samples from the European Nucleotide Archive (ENA). 
+
+The metadata downloaded includes these search fields*:
+
+* `sample_description`
+* `dev_stage`
+* `study_title`
+* `sample_title`
+* `tissue_lib`
+* `tissue_type`
+
+_*for more information regarding search fields and metadata hosted by ENA, click_ [_here_](https://ena-docs.readthedocs.io/en/latest/submit/general-guide/metadata.html)
+
+#### Simplest implementation
+
+```
+python ./main/Download_metadata.py --output_dir /path/to/output_directory --input_matrix_path /path/to/taxid3702_500n_expression_matrix.tsv
+```
+
+#### Full options
+
+```
+usage: Download_metadata.py [-h] -o  [-de] -im
+
+Download_metadata.py Download metadata of SRR accessions from European Nucleotide Archive (ENA).
+
+options:
+  -h, --help            show this help message and exit
+  -o , --output_dir     Directory to output. Must be the same as for Generate_partitions.py, Run_TEA-GCN.py and Rank_transform.py.
+  -de , --delimiter     Delimiter for expression matrix. -de="t" for tab-separated (.tsv). -de="c" for comma separated (.csv). TSV by default.
+  -im , --input_matrix_path
+                        Path of expression matrix to input
+```
+
+### Step 2. Annotating Partitions with overrepresented lemmas
+
+### Step 3. Generating Partition Rankings for your edges-of-interest
+
+### Step 4. Experimental context discovery using Google colab notebook
 
 ## Evaluating TEA-GCN Performance
 
