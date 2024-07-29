@@ -229,6 +229,9 @@ Refer to the Colab notebook (linked below) to predict the biological function of
 
 [TEA-GCN_Function_pred_using_GSEA.ipynb](https://colab.research.google.com/drive/1Qjog6kc5QtVOl0Rdh8fhnZDVBF4sCz8h?usp=sharing)
 
+![image](https://github.com/user-attachments/assets/df911a61-2c91-40a1-8e52-5ce80b740d4e)
+
+
 ## Discover experimental contexts underpinning TEA-GCN co-expression edges
 
 <img  src="https://github.com/user-attachments/assets/bf40485c-768d-4eb7-be0f-4ed39530b884" alt="banner" width="700"/>
