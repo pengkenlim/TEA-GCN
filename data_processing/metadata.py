@@ -19,7 +19,7 @@ def metadata_json_from_ena(Accession, fields=["run_accession","fastq_aspera","fa
 
 def download_metadata_for_exp_mat(Samples, Search_fields, outputpath):
     with open(outputpath, "w") as fout:
-        fout.write("\t".join(Search_fields) + "\n" )
+        fout.write("Accession"+ "\t"+ "\t".join(Search_fields) + "\n" )
         for idx , Accession in enumerate(Samples):
             try:
                 response_json = metadata_json_from_ena(Accession, fields = Search_fields)
