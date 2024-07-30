@@ -9,26 +9,33 @@
 ## What does this pipeline do?
 This pipeline generates high-quality Gene Co-expression Networks (TEA-GCN ) that capture tissue/condition-specific co-expression.
 
+For in-depth explanation and evaluation of the TEA-GCN methodology, please refer to our [preprint](https://doi.org/10.1101/2024.07.22.604713) :newspaper:
+
 ## Navigation
-* [Generate TEA-GCN from your transcriptomic dataset](https://github.com/pengkenlim/TEA-GCN/tree/main?tab=readme-ov-file#generate-tea-gcn-from-your-transcriptomic-dataset)
+* [Generate TEA-GCN from your transcriptomic dataset](https://github.com/pengkenlim/TEA-GCN/tree/main?tab=readme-ov-file#generate-tea-gcn-from-your-transcriptomic-dataset) :arrow_forward:
   * [Step 1. Setting up](https://github.com/pengkenlim/TEA-GCN/tree/main?tab=readme-ov-filed#step-1-setting-up)
   * [Step 2. Generating partitions for your dataset](https://github.com/pengkenlim/TEA-GCN/tree/main?tab=readme-ov-file#step-2-generating-partitions-for-your-dataset)
   * [Step 3. Building TEA-GCN](https://github.com/pengkenlim/TEA-GCN/tree/main?tab=readme-ov-file#step-3-building-tea-gcn)
   * [Step 4. Post-processing TEA-GCN](https://github.com/pengkenlim/TEA-GCN/tree/main?tab=readme-ov-file#step-4-post-processing-tea-gcn)
     
-* [Gene Function Prediction using TEA-GCN](https://github.com/pengkenlim/TEA-GCN/tree/main?tab=readme-ov-file#gene-function-prediction-using-tea-gcn)
+* [Gene Function Prediction using TEA-GCN](https://github.com/pengkenlim/TEA-GCN/tree/main?tab=readme-ov-file#gene-function-prediction-using-tea-gcn) :dart:
   * [Step 1. Generating Co-expression Neighbourhoods of your genes-of-interest](https://github.com/pengkenlim/TEA-GCN/tree/main?tab=readme-ov-file#step-1-generating-co-expression-neighbourhoods-of-your-genes-of-interest)
   * [Step 2. GSEA using Google colab notebook](https://github.com/pengkenlim/TEA-GCN/)
     
-* [Discover experimental contexts underpinning TEA-GCN co-expression edges](https://github.com/pengkenlim/TEA-GCN/tree/main?tab=readme-ov-file#discover-experimental-contexts-underpinning-tea-gcn-co-expression-edges)
+* [Discover experimental contexts underpinning TEA-GCN co-expression edges](https://github.com/pengkenlim/TEA-GCN/tree/main?tab=readme-ov-file#discover-experimental-contexts-underpinning-tea-gcn-co-expression-edges) :mag_right: :zap::test_tube:
   * [Step 1. Downloading Metadata of RNA-seq samples from the European Nucleotide Archive (ENA)](https://github.com/pengkenlim/TEA-GCN/)
   * [Step 2. Annotating Partitions with overrepresented lemmas](https://github.com/pengkenlim/TEA-GCN/)
   * [Step 3. Generating Partition Rankings for your edges-of-interest](https://github.com/pengkenlim/TEA-GCN/)
   * [Step 4. Experimental context discovery using Google colab notebook](https://github.com/pengkenlim/TEA-GCN/)
     
-* [Evaluating TEA-GCN Performance](https://github.com/pengkenlim/TEA-GCN/tree/main?tab=readme-ov-file#evaluating-tea-gcn-performance)
+* [Evaluating TEA-GCN Performance](https://github.com/pengkenlim/TEA-GCN/tree/main?tab=readme-ov-file#evaluating-tea-gcn-performance) :chart_with_upwards_trend:
   * [Step 1. Preparing positive and negative edges](https://github.com/pengkenlim/TEA-GCN/tree/main?tab=readme-ov-file#step-1-preparing-positive-and-negative-edges)
   * [Step 2. Calculating ROC and PRC performance](https://github.com/pengkenlim/TEA-GCN/)
+
+
+* [Citing TEA-GCN](https://github.com/pengkenlim/TEA-GCN/)
+* [Complementary tools](https://github.com/pengkenlim/TEA-GCN/)
+* [Contact information](https://github.com/pengkenlim/TEA-GCN/)
 
 ## Generate TEA-GCN from your transcriptomic dataset
 
@@ -274,6 +281,8 @@ options:
 
 ### Step 2. Annotating Partitions with overrepresented lemmas
 
+<img  src="https://github.com/user-attachments/assets/ed3f63e4-c69a-45ea-90da-9dfc1419180c" alt="banner" width="700"/>
+
 #### Simplest implementation
 
 Download and install your spaCy model of choice for Natural Language Processing (NLP). Below we chose the `en_core_web_sm` model. This model will be used to lemmatize the metadata of RNA-seq samples downloaded from ENA.
@@ -282,13 +291,104 @@ Download and install your spaCy model of choice for Natural Language Processing 
 $ python -m spacy download en_core_web_sm
 ```
 
+Running this script will find overrepresented lemmas to annotate partitions
+
+```
+$ python ./main/Annotate_partitions.py  --output_dir /path/to/output_directory --input_matrix_path /path/to/taxid3702_500n_expression_matrix.tsv
+```
+
+#### Full options
+
+```
+usage: Annotate_partitions.py [-h] -o  [-de] -im  -k  [-m] [-p]
+
+Annotate_partitions.py Lemmatize metadata of RNA-seq samples. Annotate dataset partitions with overrepresented lemmas
+
+options:
+  -h, --help            show this help message and exit
+  -o , --output_dir     Directory to output. Must be the same as for Generate_partitions.py, Run_TEA-GCN.py, and Rank_transform.py.
+  -de , --delimiter     Delimiter for expression matrix. -de="t" for tab-separated (.tsv). -de="c" for comma separated (.csv). TSV by default.
+  -im , --input_matrix_path
+                        Path of expression matrix to input
+  -k , --k_clusters     Number of clusters to partition the expression data. For k=0, will use best k as determined in Generate_partitions.py step.
+  -m , --model          spaCy model to use for lemmatization. 'en_core_web_sm' will be used by default.
+  -p , --permutations   Number of permutations to shuffle during the calculation of overrepresentation p-values. Default = 10,000
+
+```
 
 ### Step 3. Generating Partition Rankings for your edges-of-interest
 
+<img  src="https://github.com/user-attachments/assets/9252f188-670b-4d95-8a99-0d86dc19527d" alt="banner" width="350" />
+
+#### Simplest implementation
+
+```
+```
+
 ### Step 4. Experimental context discovery using Google colab notebook
+
+<img  src="https://github.com/user-attachments/assets/1357907f-a701-4585-b522-9223c4c2d14b" alt="banner" width="700"/>
+
+<img  src="https://github.com/user-attachments/assets/2c078d70-99e4-400d-9c5a-607e2cb914c0" alt="banner" width="300"/>
+
 
 ## Evaluating TEA-GCN Performance
 
 ### Step 1. Preparing positive and negative edges
 
-**COMING SOON**
+#### Simplest implementation
+
+```
+```
+
+
+## Citing TEA-GCN
+
+You can cite our preprint for now :)
+
+```
+Lim, P. K., Wang, R., Velankanni, J. P. A., & Mutwil, M. (2024).
+Constructing Ensemble Gene Functional Networks Capturing Tissue/condition-specific Co-expression from Unlabled Transcriptomic Data with TEA-GCN
+(p. 2024.07.22.604713).
+bioRxiv. https://doi.org/10.1101/2024.07.22.604713
+```
+## Complementary tools
+
+coming soon...
+
+## Author information and contact
+
+
+### Marek Mutwil :bearded_person:
+
+<img  src="https://github.com/user-attachments/assets/21bc4e2c-ee6d-4534-a69b-b9d735322df7" alt="banner" width="100"/>\
+_I am the project supervisor. I advise the students and buy them meals sometimes._
+
+Principal Investigator and Assoc. Prof.,\
+[School of Biological Sciences, Nanyang Technological University](https://www.ntu.edu.sg/sbs)\
+mutwil@ntu.edu.sg:email:\
+[Lab website](https://www.plant.tools/):link:
+
+
+### Peng Ken Lim :boy:
+
+<img  src="https://github.com/user-attachments/assets/439a32b9-7e34-4a65-98e4-bc9616956ef9" alt="banner" width="120"/>\
+_I am the project co-supervisor. I wrote most of the code._
+
+PhD student,\
+[School of Biological Sciences, Nanyang Technological University](https://www.ntu.edu.sg/sbs)\
+pengken001@e.ntu.edu.sg:email:
+
+### Ruoxi Wang :baby:
+
+_I wrote some of the code and conducted comparative-GCN analysis for this project._
+
+Undergraduate student,\
+[Shanghai Jiao Tong University](https://en.sjtu.edu.cn/)
+
+### Jenet Princy Antony Velankanni :baby:
+
+_I helped with mining Human and Yeast gene annotations for this project._
+
+Undergraduate student,\
+[School of Biological Sciences, Nanyang Technological University](https://www.ntu.edu.sg/sbs)
