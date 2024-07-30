@@ -53,11 +53,18 @@ if __name__ == "__main__":
         delim = "\t"
     else:
         delim= ","
+
+    if k_clusters ==0:
+        k_clusters = read_write.load_pickle( os.path.join(output_dir,"Generate_partitions","selected_k.pkl"))
+        print(f"k=0 specified. Will use best k of {k_clusters} as determined by Generate_partitions.py")
+        k= int(k_clusters)
+    else:
+        k = k_clusters
     
     #load partition info
     with open(os.path.join(output_dir, "Generate_partitions", "k_cluster_assignment_dict.pkl") , "rb") as fin:
         k_cluster_assignment_dict = pickle.load(fin)
-    cluster_assignment = k_cluster_assignment_dict[k_clusters]
+    cluster_assignment = k_cluster_assignment_dict[k]
 
     metadata_path = os.path.join(sub_outdir,"metadata.tsv")
     metadata_lemma_out_path  = os.path.join(sub_outdir,"metadata_lemmas.tsv")
