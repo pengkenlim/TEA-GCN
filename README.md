@@ -132,7 +132,7 @@ After building a TEA-GCN that describes the co-expression strengths between ever
 #### Simplest implementation
 
 ```
-python ./main/Rank_transform.py --output_dir /path/to/output_directory
+$ python ./main/Rank_transform.py --output_dir /path/to/output_directory
 ```
 
 Completed TEA-GCN will be located in `/path/to/output_directory/Completed_GCN/<NETWORK_NAME>`.
@@ -187,7 +187,7 @@ Description of columns:
 #### Simplest implementation
 
 ```
-python ./main/Prepare_neighbourhoods.py --output_dir /path/to/output_directory --gene_list AT3G02480.1
+$ python ./main/Prepare_neighbourhoods.py --output_dir /path/to/output_directory --gene_list AT3G02480.1
 ```
 
 #### Full Options
@@ -254,7 +254,7 @@ _*for more information regarding search fields and metadata hosted by ENA, click
 #### Simplest implementation
 
 ```
-python ./main/Download_metadata.py --output_dir /path/to/output_directory --input_matrix_path /path/to/taxid3702_500n_expression_matrix.tsv
+$ python ./main/Download_metadata.py --output_dir /path/to/output_directory --input_matrix_path /path/to/taxid3702_500n_expression_matrix.tsv
 ```
 
 #### Full options
@@ -273,6 +273,15 @@ options:
 ```
 
 ### Step 2. Annotating Partitions with overrepresented lemmas
+
+#### Simplest implementation
+
+Download and install your spaCy model of choice for Natural Language Processing (NLP). Below we chose the `en_core_web_sm` model. This model will be used to lemmatize the metadata of RNA-seq samples downloaded from ENA.
+
+```
+$ python -m spacy download en_core_web_sm
+```
+
 
 ### Step 3. Generating Partition Rankings for your edges-of-interest
 
