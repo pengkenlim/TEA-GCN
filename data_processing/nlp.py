@@ -137,7 +137,7 @@ def write_annotation(P_value_matrix, lemmas_index_dict, outpath):
     lemma_array = np.array(lemma_array)
     with open(outpath, "w") as fout:
         fout.write(f"Dataset Partition\tOverrepresented lemmas\t")
-        for partition in P_value_matrix.shape[0]:
+        for partition in range(P_value_matrix.shape[0]):
             p_values = P_value_matrix[partition,:]
             indices = np.where(p_values <=0.05 )
             extracted_lemma_array = list(lemma_array[indices])
