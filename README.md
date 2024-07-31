@@ -329,9 +329,43 @@ options:
 
 <img  src="https://github.com/user-attachments/assets/9252f188-670b-4d95-8a99-0d86dc19527d" alt="banner" width="250" />
 
+#### Defining edges-of-interest
+
+Prepare edges-of-interest as input like so.
+
+```
+$ less /path/to/edges_of_interest.csv
+```
+
+<img  src="https://github.com/user-attachments/assets/a4d1fa68-765c-42b1-96a0-4f2c2c553e20" alt="banner" width="210" />
+
+Each row describes one edge. Two comma-separated columns for the two genes that connect the edge.
+
 #### Simplest implementation
 
 ```
+python ./main/Get_Partition_Rankings.py -k 93 --input_matrix_path /path/to/taxid3702_500n_expression_matrix.tsv --edges_path /path/to/edges_of_interest.tsv --output_dir /path/to/output_directory
+```
+
+#### Full options
+
+```
+usage: Get_Partition_Rankings.py [-h] [-w] [-t] -o  [-de] [-k] -im  -ep  [-on]
+
+Get_Partition_Rankings.py.
+
+options:
+  -h, --help            show this help message and exit
+  -w , --workers        Number of workers for parallelization. Affects precalc of all coefficients. But only affects the calc of bicor.
+  -t , --threads        Number of threads for numpy linear algebra operations.
+  -o , --output_dir     Directory to output.
+  -de , --delimiter     Delimiter for expression matrix. -de="t" for tab-separated (.tsv). -de="c" for comma separated (.csv). TSV by default.
+  -k , --k_clusters     Number of clusters to partition the expression data. For k=0, will use best k as determined in Generate_partitions.py step.
+  -im , --input_matrix_path
+                        Path of expression matrix to input
+  -ep , --edges_path    Path to list of edges to calculate.
+  -on , --outname_prefix
+                        prefix of to output calculations.
 ```
 
 ### Step 4. Experimental context discovery using Google Colab notebook
@@ -349,7 +383,6 @@ $ less /path/to/output_directory/Lemma_annotations/overrepresented_lemmas.tsv
 ```
 
 <img  src="https://github.com/user-attachments/assets/874aa637-1dfd-49af-91cf-f70ab597e004" alt="banner" width="100"/>
-
 
 
 #### Colab notebook
