@@ -230,7 +230,7 @@ Description of columns:
 * `Centered_rank`
   * `Score` ranked inversely (higher values, have larger ranks) and centered (median rank = 0).
 
-### Step 2. GSEA using Google colab notebook
+### Step 2. GSEA using Google Colab notebook
 
 Refer to the Colab notebook (linked below) to predict the biological function of your gene-of-interest based on their co-expression neighbourhood:
 
@@ -318,19 +318,36 @@ options:
 
 ### Step 3. Generating Partition Rankings for your edges-of-interest
 
-<img  src="https://github.com/user-attachments/assets/9252f188-670b-4d95-8a99-0d86dc19527d" alt="banner" width="350" />
+<img  src="https://github.com/user-attachments/assets/9252f188-670b-4d95-8a99-0d86dc19527d" alt="banner" width="250" />
 
 #### Simplest implementation
 
 ```
 ```
 
-### Step 4. Experimental context discovery using Google colab notebook
+### Step 4. Experimental context discovery using Google Colab notebook
 
 <img  src="https://github.com/user-attachments/assets/1357907f-a701-4585-b522-9223c4c2d14b" alt="banner" width="700"/>
 
-<img  src="https://github.com/user-attachments/assets/2c078d70-99e4-400d-9c5a-607e2cb914c0" alt="banner" width="300"/>
+#### Removing irrelevant lemmas
 
+To discover experimental contexts underpinning gene co-expression, we use a GSEA-like approach to detect overrepresented lemmas that annotate partitions with high co-expression. However, not all overrepresented lemmas are informative or relevant to experimental conditions. Including them in the downstream analysis will only confound the interpretation of experimental contexts and decrease the sensitivity via harsher multiple-testing correction.
+
+[Step 2](https://github.com/pengkenlim/TEA-GCN) generates a list of overrepresented lemmas that are detected in your dataset partitions in `/path/to/output_directory/Lemma_annotations/overrepresented_lemmas.tsv`. You can remove irrelevant lemmas from this file. It will be used as input in the Colab notebook below to exclude them from the analysis.
+
+```
+$ less /path/to/output_directory/Lemma_annotations/overrepresented_lemmas.tsv
+```
+
+<img  src="https://github.com/user-attachments/assets/874aa637-1dfd-49af-91cf-f70ab597e004" alt="banner" width="100"/>
+
+
+
+#### Colab notebook
+
+Refer to the Colab notebook (linked below) to uncover the Experimental contexts underpinning gene co-expression:
+
+[Uncover_the_Experimental_contexts_Underpinning_Gene_Co-expression.ipynb](https://colab.research.google.com/drive/1DKVj8lNCnYXbhseMeIJzQk9TBGy1lNy-?usp=sharing)
 
 ## Evaluating TEA-GCN Performance
 
