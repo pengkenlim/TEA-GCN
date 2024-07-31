@@ -90,3 +90,11 @@ def calc_untargeted(k, genes, nominators_dict, denominators_dict, aggregation_me
     for  gene_idx, gene in enumerate(genes):
         result=calc_job(k, aggregation_method , genes, network_path, gene_idx, gene, nominators_dict, denominators_dict)
         print(result)
+
+def calc_job_k(source_array, target_array, shared_nominators_dict, shared_denominators_dict, cluster, threads):
+    warnings.filterwarnings(action='ignore', message='invalid value encountered in divide')
+    #cor_values = np.sum(shared_nominators_dict[cluster][source_array] * shared_nominators_dict[cluster][target_array], axis=1)/(shared_denominators_dict[cluster][source_array]* shared_denominators_dict[cluster][target_array])
+    numerator = einsumt('ij,ij->i', np.take(shared_nominators_dict[cluster], source_array , axis = 0) , np.take(shared_nominators_dict[cluster], target_array , axis = 0), pool =threads)
+    denominator = np.einsum('i,i->i',  np.take(shared_denominators_dict[cluster], source_array), np.take(shared_denominators_dict[cluster], target_array))
+    cor_values = numerator / denominator
+    return cor_values

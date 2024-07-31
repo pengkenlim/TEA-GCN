@@ -86,17 +86,3 @@ if __name__ == "__main__":
             for target, score, rank_centered in zip(targets, scores, ranks_centered):
                 fout.write(f"{target}\t{score}\t{int(rank_centered)}\n")
         print(f"Co-expression neighbourhood of {gene} generated.")
-sys.exit()
-path = '/mnt/md0/ken/correlation_networks/Testing_pipeline/Co-exp_Neighbourhoods/AT5G56110.1'
-with open(path, "r") as f:
-    strings = []
-    for line_no, line in enumerate(f):
-        if line_no == 0:
-            strings.append(line)
-        else:
-            line_contents = line.split("\t")
-            line_contents[0] = line_contents[0].split(".")[0]
-            strings.append("\t".join(line_contents))
-output_path = "/mnt/md0/ken/correlation_networks/Testing_pipeline/Co-exp_Neighbourhoods/AT5G56110"
-with open(output_path, "w") as fout:
-     fout.write("".join(strings))

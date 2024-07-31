@@ -94,3 +94,11 @@ def build_ensemble_GCN( Tid2Gid_dict, k_cluster_assignment_dict, expmat_path, k,
     genes, gene_dict, nominators_dict, denominators_dict = precalc(expmat_path, Tid2Gid_dict, k_cluster_assignment_dict, k, delimiter=delim, workers=workers)
     print("Calculating and writing correlations...")
     calc_untargeted(k, genes, nominators_dict, denominators_dict, aggregation_method, network_path)
+
+def calc_job_k(source_array, target_array, shared_nominators_dict, shared_denominators_dict, cluster, threads):
+    warnings.filterwarnings(action='ignore', message='invalid value encountered in divide')
+    #cor_values = np.sum(shared_nominators_dict[cluster][source_array] * shared_nominators_dict[cluster][target_array], axis=1)/(shared_denominators_dict[cluster][source_array]* shared_denominators_dict[cluster][target_array])
+    numerator = einsumt('ij,ij->i', np.take(shared_nominators_dict[cluster], source_array , axis = 0) , np.take(shared_nominators_dict[cluster], target_array , axis = 0), pool =threads)
+    denominator = np.einsum('i,i->i',  np.take(shared_denominators_dict[cluster], source_array), np.take(shared_denominators_dict[cluster], target_array))
+    cor_values = numerator / denominator
+    return cor_values

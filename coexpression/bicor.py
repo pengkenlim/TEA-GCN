@@ -124,3 +124,11 @@ def build_ensemble_GCN( Tid2Gid_dict, k_cluster_assignment_dict, expmat_path, k,
     genes, gene_dict , norm_weights_dict = precalc(expmat_path, Tid2Gid_dict, k_cluster_assignment_dict, k, delimiter=delim, workers=workers)
     print("Calculating and writing correlations...")
     calc_untargeted(k, genes, norm_weights_dict, aggregation_method, network_path ,workers=workers)
+
+def calc_job_k(source_array, target_array, norm_weights_dict, cluster, threads):
+    warnings.filterwarnings(action='ignore', message='Mean of empty slice')
+    #cor_values = np.einsum("ijk, ijk -> ij", norm_weights_dict[cluster][:,source_array,:], norm_weights_dict[cluster][:,target_array, :])
+    cor_values = einsumt("ijk, ijk -> ij", np.take(norm_weights_dict[cluster], source_array , axis =1),
+                         np.take(norm_weights_dict[cluster], target_array , axis =1), pool = threads)
+    cor_means = np.nanmean(cor_values, axis=0)
+    return cor_means

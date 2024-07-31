@@ -90,3 +90,60 @@ def build_ensemble_GCN( Tid2Gid_dict, k_cluster_assignment_dict, expmat_path, k,
     PCC_genes, PCC_gene_dict,SCC_genes, SCC_gene_dict, bicor_genes, bicor_gene_dict , PCC_nominators_dict, PCC_denominators_dict, SCC_nominators_dict, SCC_denominators_dict, bicor_norm_weights_dict = precalc(expmat_path, Tid2Gid_dict, k_cluster_assignment_dict, k, delimiter=delim, workers=workers)
     print("Calculating and writing correlations...")
     calc_untargeted(k, PCC_genes, SCC_genes, bicor_genes, PCC_nominators_dict, PCC_denominators_dict,SCC_nominators_dict , SCC_denominators_dict,bicor_norm_weights_dict, aggregation_method, network_path, workers= workers)
+
+def calc_targeted(k, path, edges ,PCC_genes, PCC_gene_dict,SCC_genes, SCC_gene_dict, bicor_genes, bicor_gene_dict ,PCC_nominators_dict, PCC_denominators_dict,SCC_nominators_dict , SCC_denominators_dict,bicor_norm_weights_dict,threads ,workers= 2):
+    warnings.filterwarnings(action='ignore', message='All-NaN slice encountered') 
+    #add header if creating new file
+    if not os.path.exists(path):
+        with open(path, "w") as f:
+            f.write("Edge\tPartition co-exp.\n")
+    PCC_source_array , PCC_target_array= [], []
+    SCC_source_array , SCC_target_array= [], []
+    bicor_source_array , bicor_target_array= [], []
+    for edge in list(edges):
+        source, target = edge.split("--")
+        PCC_source_array.append(PCC_gene_dict[source])
+        PCC_target_array.append(PCC_gene_dict[target])
+        
+        SCC_source_array.append(SCC_gene_dict[source])
+        SCC_target_array.append(SCC_gene_dict[target])
+        
+        bicor_source_array.append(bicor_gene_dict[source])
+        bicor_target_array.append(bicor_gene_dict[target])
+    
+    ALL_cor_means = []
+    for cluster in range(k):
+        PCC_cor_means = pearson.calc_job_k(PCC_source_array, PCC_target_array, PCC_nominators_dict, PCC_denominators_dict, cluster, threads)
+        SCC_cor_means = spearman.calc_job_k(SCC_source_array, SCC_target_array, SCC_nominators_dict, SCC_denominators_dict, cluster, threads)
+        bicor_cor_means = bicor.calc_job_k(bicor_source_array, bicor_target_array, bicor_norm_weights_dict, cluster, threads)
+        combined_cor_means = np.nanmax( np.array( [ PCC_cor_means, SCC_cor_means , bicor_cor_means] ) , axis = 0)
+        ALL_cor_means.append(combined_cor_means)
+
+    ALL_cor_means = np.array(ALL_cor_means)
+    
+    #batch_ensemble_scores = []
+    #for mode in ["Max", "Avg", "RAvg", "RWA", "RRWA"]:
+        #batch_ensemble_scores.append(ensemble.aggregate(ALL_cor_means, mode, axis = 0))
+    #batch_ensemble_scores = np.array(batch_ensemble_scores)
+    with open(path, "a") as f:
+        for idx, edge in enumerate(edges):
+            cluster_cor = ALL_cor_means[:,idx]
+            #ensemble_scores = batch_ensemble_scores[:,idx]
+            cluster_cor = ",".join([str(i) for i in cluster_cor])
+            #ensemble_scores = ",".join([str(i) for i in ensemble_scores])
+            f.write(f"{edge}\t{cluster_cor}\n")
+
+def get_partition_coexp(k, positive_met_edges_cor_path ,expmat_path, Tid2Gid_dict,  k_cluster_assignment_dict, delim, workers, positive_met_edges, threads):
+    PCC_genes, PCC_gene_dict,SCC_genes, SCC_gene_dict, bicor_genes, bicor_gene_dict , PCC_nominators_dict, PCC_denominators_dict, SCC_nominators_dict, SCC_denominators_dict, bicor_norm_weights_dict = precalc(expmat_path, Tid2Gid_dict, k_cluster_assignment_dict, k, delimiter=delim, workers=workers)
+    print("Calculating and writing correlations of edges-of-interests...")
+
+    if len(positive_met_edges) < 5000: 
+        calc_targeted(k, positive_met_edges_cor_path, positive_met_edges ,
+                    PCC_genes, PCC_gene_dict,SCC_genes, SCC_gene_dict, bicor_genes, bicor_gene_dict ,  PCC_nominators_dict, PCC_denominators_dict,SCC_nominators_dict , SCC_denominators_dict,bicor_norm_weights_dict,threads ,workers=workers)
+
+    else:
+        positive_met_edges_chunks = [positive_met_edges[x: x+ 5000] for x in range(0, len(positive_met_edges), 5000)]
+        for chunk in positive_met_edges_chunks:
+            calc_targeted(k, positive_met_edges_cor_path, chunk , 
+                          PCC_genes, PCC_gene_dict,SCC_genes, SCC_gene_dict, bicor_genes, bicor_gene_dict ,  PCC_nominators_dict, PCC_denominators_dict,SCC_nominators_dict , SCC_denominators_dict,bicor_norm_weights_dict,threads ,workers=workers)
+
