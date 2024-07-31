@@ -185,6 +185,8 @@ Description of columns:
 * `zScore(Co-exp_Str_MR)`
   * z-score standardized MR -- Helpful for cross-comparing GCNs
 
+Back to [Navigation](https://github.com/pengkenlim/TEA-GCN/?tab=readme-ov-file#navigation)
+
 ## Gene Function Prediction using TEA-GCN
 
 <img src="https://github.com/user-attachments/assets/af7a133e-bad2-4a72-852f-add13fb173bb" alt="banner"  width="700"/>
@@ -243,6 +245,8 @@ Refer to the Colab notebook (linked below) to predict the biological function of
 ![note_3](https://github.com/user-attachments/assets/c42e241e-23d2-4b76-93f3-53a5d2c9414e)
 
 ![note_4](https://github.com/user-attachments/assets/a1223e67-ac0a-4f37-ab9f-687528780c3a)
+
+Back to [Navigation](https://github.com/pengkenlim/TEA-GCN/?tab=readme-ov-file#navigation)
 
 ## Discover experimental contexts underpinning TEA-GCN co-expression edges
 
@@ -354,6 +358,8 @@ Refer to the Colab notebook (linked below) to uncover the Experimental contexts 
 
 [Uncover_the_Experimental_contexts_Underpinning_Gene_Co-expression.ipynb](https://colab.research.google.com/drive/1DKVj8lNCnYXbhseMeIJzQk9TBGy1lNy-?usp=sharing)
 
+Back to [Navigation](https://github.com/pengkenlim/TEA-GCN/?tab=readme-ov-file#navigation)
+
 ## Evaluating TEA-GCN Performance
 
 ### Step 1. Preparing positive and negative edges
@@ -363,6 +369,7 @@ Refer to the Colab notebook (linked below) to uncover the Experimental contexts 
 ```
 ```
 
+Back to [Navigation](https://github.com/pengkenlim/TEA-GCN/?tab=readme-ov-file#navigation)
 
 ## Citing TEA-GCN
 
@@ -377,6 +384,8 @@ bioRxiv. https://doi.org/10.1101/2024.07.22.604713
 ## Complementary tools
 
 coming soon...
+
+Back to [Navigation](https://github.com/pengkenlim/TEA-GCN/?tab=readme-ov-file#navigation)
 
 ## Author and contact information
 
@@ -414,3 +423,5 @@ _I helped with mining Human and Yeast gene annotations for this project._
 
 Undergraduate student,\
 [School of Biological Sciences, Nanyang Technological University](https://www.ntu.edu.sg/sbs)
+
+Back to [Navigation](https://github.com/pengkenlim/TEA-GCN/?tab=readme-ov-file#navigation)
