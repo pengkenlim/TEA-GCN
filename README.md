@@ -33,9 +33,9 @@ For in-depth explanation and evaluation of the TEA-GCN methodology, please refer
   * [Step 2. Calculating ROC and PRC performance](https://github.com/pengkenlim/TEA-GCN/)
 
 
-* [Citing TEA-GCN](https://github.com/pengkenlim/TEA-GCN/)
-* [Complementary tools](https://github.com/pengkenlim/TEA-GCN/)
-* [Contact information](https://github.com/pengkenlim/TEA-GCN/)
+* [Citing TEA-GCN](https://github.com/pengkenlim/TEA-GCN/?tab=readme-ov-file#citing-tea-gcn)
+* [Complementary tools](https://github.com/pengkenlim/TEA-GCN/?tab=readme-ov-file#complementary-tools)
+* [Author and contact information](https://github.com/pengkenlim/TEA-GCN/?tab=readme-ov-file#Author-and-contact-information)
 
 ## Generate TEA-GCN from your transcriptomic dataset
 
@@ -378,7 +378,7 @@ bioRxiv. https://doi.org/10.1101/2024.07.22.604713
 
 coming soon...
 
-## Author information and contact
+## Author and contact information
 
 
 ### Marek Mutwil :bearded_person:
