@@ -195,6 +195,8 @@ if __name__ == "__main__":
     #    P_bh_matrix.append(corrected_p_values)
     #P_bh_matrix = np.array(P_bh_matrix)
 
+    #trimming the geneids
+
     
 
     
