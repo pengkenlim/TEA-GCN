@@ -20,13 +20,13 @@ For in-depth explanation and evaluation of the TEA-GCN methodology, please refer
     
 * [Gene Function Prediction using TEA-GCN](https://github.com/pengkenlim/TEA-GCN/tree/main?tab=readme-ov-file#gene-function-prediction-using-tea-gcn) :dart:
   * [Step 1. Generating Co-expression Neighbourhoods of your genes-of-interest](https://github.com/pengkenlim/TEA-GCN/tree/main?tab=readme-ov-file#step-1-generating-co-expression-neighbourhoods-of-your-genes-of-interest)
-  * [Step 2. GSEA using Google colab notebook](https://github.com/pengkenlim/TEA-GCN/)
+  * [Step 2. GSEA using Google Colab notebook](https://github.com/pengkenlim/TEA-GCN/tree/main?tab=readme-ov-file#step-4-experimental-context-discovery-using-google-colab-notebook)
     
 * [Discover experimental contexts underpinning TEA-GCN co-expression edges](https://github.com/pengkenlim/TEA-GCN/tree/main?tab=readme-ov-file#discover-experimental-contexts-underpinning-tea-gcn-co-expression-edges) :mag_right: :zap::test_tube:
-  * [Step 1. Downloading Metadata of RNA-seq samples from the European Nucleotide Archive (ENA)](https://github.com/pengkenlim/TEA-GCN/)
-  * [Step 2. Annotating Partitions with overrepresented lemmas](https://github.com/pengkenlim/TEA-GCN/)
-  * [Step 3. Generating Partition Rankings for your edges-of-interest](https://github.com/pengkenlim/TEA-GCN/)
-  * [Step 4. Experimental context discovery using Google colab notebook](https://github.com/pengkenlim/TEA-GCN/)
+  * [Step 1. Downloading Metadata of RNA-seq samples from the European Nucleotide Archive (ENA)](https://github.com/pengkenlim/TEA-GCN/tree/main?tab=readme-ov-file#step-1-downloading-metadata-of-rna-seq-samples-from-the-european-nucleotide-archive-ena)
+  * [Step 2. Annotating Partitions with overrepresented lemmas](https://github.com/pengkenlim/TEA-GCN/tree/main?tab=readme-ov-file#step-2-annotating-partitions-with-overrepresented-lemmas)
+  * [Step 3. Generating Partition Rankings for your edges-of-interest](https://github.com/pengkenlim/TEA-GCN/tree/main?tab=readme-ov-file#step-3-generating-partition-rankings-for-your-edges-of-interest)
+  * [Step 4. Experimental context discovery using Google Colab notebook](https://github.com/pengkenlim/TEA-GCN/tree/main?tab=readme-ov-file#step-4-experimental-context-discovery-using-google-colab-notebook)
     
 * [Evaluating TEA-GCN Performance](https://github.com/pengkenlim/TEA-GCN/tree/main?tab=readme-ov-file#evaluating-tea-gcn-performance) :chart_with_upwards_trend:
   * [Step 1. Preparing positive and negative edges](https://github.com/pengkenlim/TEA-GCN/tree/main?tab=readme-ov-file#step-1-preparing-positive-and-negative-edges)
@@ -236,8 +236,13 @@ Refer to the Colab notebook (linked below) to predict the biological function of
 
 [TEA-GCN_Function_pred_using_GSEA.ipynb](https://colab.research.google.com/drive/1Qjog6kc5QtVOl0Rdh8fhnZDVBF4sCz8h?usp=sharing)
 
-![image](https://github.com/user-attachments/assets/df911a61-2c91-40a1-8e52-5ce80b740d4e)
+![note_1](https://github.com/user-attachments/assets/e9e1d64b-224a-4bba-b0f4-08f4ea978264)
 
+![note_2](https://github.com/user-attachments/assets/3aef94db-8da5-4c24-a921-084c67971357)
+
+![note_3](https://github.com/user-attachments/assets/c42e241e-23d2-4b76-93f3-53a5d2c9414e)
+
+![note_4](https://github.com/user-attachments/assets/a1223e67-ac0a-4f37-ab9f-687528780c3a)
 
 ## Discover experimental contexts underpinning TEA-GCN co-expression edges
 
