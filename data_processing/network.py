@@ -57,6 +57,8 @@ def extract_ranks(network_dir):
     return genes , upper_half, lower_half, upper_half_cor, gene_dict
 
 def write_all_edge_attributes(gene_dict, HRR_array, MR_array, cor_zscore_array, HRR_zscore_array, MR_zscore_array, old_network_dir, new_network_dir, genes):
+    max_zscore_MR = np.nanmax(MR_zscore_array)
+    max_zscore_HRR = np.nanmax(HRR_zscore_array)
     for idx, source in enumerate(genes):
         with open(os.path.join(old_network_dir, source), "r") as fin:
             with open(os.path.join(new_network_dir, source), "w") as fout:
@@ -67,7 +69,7 @@ def write_all_edge_attributes(gene_dict, HRR_array, MR_array, cor_zscore_array, 
                         target, cor, Rank = line.split("\n")[0].split("\t")
                         cor = np.round(float(cor), 5)
                         if target == source:
-                            MR , HRR , zHRR = 1.0 , 1.0, math.nan
+                            MR , HRR , zHRR , zMR= 1.0 , 1.0, max_zscore_HRR, max_zscore_MR
                         else:
                             source_idx = gene_dict[source]
                             target_idx = gene_dict[target]
@@ -79,6 +81,7 @@ def write_all_edge_attributes(gene_dict, HRR_array, MR_array, cor_zscore_array, 
             print(idx,"genes done")
 
 def write_MR_attributes_only(gene_dict, MR_array,  MR_zscore_array, old_network_dir, new_network_dir, genes):
+    max_zscore_MR = np.nanmax(MR_zscore_array)
     for idx, source in enumerate(genes):
         with open(os.path.join(old_network_dir, source), "r") as fin:
             with open(os.path.join(new_network_dir, source), "w") as fout:
@@ -89,7 +92,7 @@ def write_MR_attributes_only(gene_dict, MR_array,  MR_zscore_array, old_network_
                         target, cor, Rank = line.split("\n")[0].split("\t")
                         cor = np.round(float(cor), 5)
                         if target == source:
-                            MR , HRR , zHRR = 1.0 , 1.0, math.nan
+                             MR , zMR = 1.0, max_zscore_MR
                         else:
                             source_idx = gene_dict[source]
                             target_idx = gene_dict[target]
