@@ -71,16 +71,6 @@ You can download it from your browser using these links:
 1. [500 _Arabidopsis thaliana_ public RNA-seq samples](https://drive.google.com/file/d/1EuJPH772bsZaFqvQRzlcz7WptMCvOyjU/view?usp=sharing)
 2. [5,000 _Arabidopsis thaliana_ public RNA-seq samples](https://drive.google.com/file/d/1EoLwtAoyc_xH2f_S-cyV8xt6E9sisuGa/view?usp=sharing)
 
-or via the command line:
-
-```
-$ wget -O /path/to/taxid3702_500n_expression_matrix.tsv https://drive.google.com/uc?id=1EuJPH772bsZaFqvQRzlcz7WptMCvOyjU
-```
-
-or
-
-```
-$ wget -O /path/to/taxid3702_5000n_expression_matrix.tsv https://drive.google.com/uc?id=1EoLwtAoyc_xH2f_S-cyV8xt6E9sisuGa
 ```
 #### Simplest implementation
 ```
@@ -423,7 +413,7 @@ bioRxiv. https://doi.org/10.1101/2024.07.22.604713
 ```
 ## Complementary tools
 
-coming soon...
+**COMING SOON**
 
 Back to [Navigation](https://github.com/pengkenlim/TEA-GCN/?tab=readme-ov-file#navigation)
 
