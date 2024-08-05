@@ -64,16 +64,24 @@ $ source ./.venv/bin/activate
 The TEA-GCN method uses of k-means clustering algorithm to divide gene expression data into partitions before gene co-expression determination. Expression data must be provided in the form of an expression matrix where 1) expression abundances are in the form of Transcript per Million (TPM), 2) rows correspond to different genes, and 3) columns correspond to different samples. The first row of the input expression matrix must consist of column headers (i.e. sample names) and the first column must consist of unique indices (i.e. gene identifiers).
 
 #### Downloading sample data
-We provide sample data of a gene expression matrix containing 500 _Arabidopsis thaliana_ public RNA-seq samples (generated in **INSERT DOI**).
+We provide sample data of a gene expression matrices containing 500 and 5,000 _Arabidopsis thaliana_ public RNA-seq samples, respectively. (used in our [preprint](https://doi.org/10.1101/2024.07.22.604713) ).
 
-You can download it from your browser using this link: https://drive.google.com/file/d/1E0eJd6AsJw6VvXUOfDXuhUOjpgL0zk4u/view?usp=sharing
+You can download it from your browser using these links: 
+
+1. [500 _Arabidopsis thaliana_ public RNA-seq samples](https://drive.google.com/file/d/1EuJPH772bsZaFqvQRzlcz7WptMCvOyjU/view?usp=sharing)
+2. [5,000 _Arabidopsis thaliana_ public RNA-seq samples](https://drive.google.com/file/d/1EoLwtAoyc_xH2f_S-cyV8xt6E9sisuGa/view?usp=sharing)
 
 or via the command line:
 
 ```
-$ wget -O /path/to/taxid3702_500n_expression_matrix.tsv https://drive.google.com/uc?id=1E0eJd6AsJw6VvXUOfDXuhUOjpgL0zk4u
+$ wget -O /path/to/taxid3702_500n_expression_matrix.tsv https://drive.google.com/uc?id=1EuJPH772bsZaFqvQRzlcz7WptMCvOyjU
 ```
 
+or
+
+```
+$ wget -O /path/to/taxid3702_5000n_expression_matrix.tsv https://drive.google.com/uc?id=1EoLwtAoyc_xH2f_S-cyV8xt6E9sisuGa
+```
 #### Simplest implementation
 ```
 $ python main/Generate_partitions.py --output_dir /path/to/output_directory --input_matrix_path /path/to/taxid3702_500n_expression_matrix.tsv
@@ -103,7 +111,7 @@ options:
 
 ### Step 3. Building TEA-GCN
 
-After data partitioning, you can start building TEA-GCN by determining co-expression strength between every gene pair. Said co-expression strength is calculated based on measured correlation coefficients between genes from every dataset partition. For more information, refer to **INSERT DOI**.
+After data partitioning, you can start building TEA-GCN by determining co-expression strength between every gene pair. Said co-expression strength is calculated based on measured correlation coefficients between genes from every dataset partition. If you would like more information, please refer to our [preprint](https://doi.org/10.1101/2024.07.22.604713).
 
 #### Simplest implementation
 ```
@@ -399,10 +407,7 @@ Back to [Navigation](https://github.com/pengkenlim/TEA-GCN/?tab=readme-ov-file#n
 
 ### Step 1. Preparing positive and negative edges
 
-#### Simplest implementation
-
-```
-```
+**COMING SOON**
 
 Back to [Navigation](https://github.com/pengkenlim/TEA-GCN/?tab=readme-ov-file#navigation)
 
