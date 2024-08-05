@@ -391,6 +391,8 @@ Refer to the Colab notebook (linked below) to uncover the Experimental contexts 
 
 [Uncover_the_Experimental_contexts_Underpinning_Gene_Co-expression.ipynb](https://colab.research.google.com/drive/1DKVj8lNCnYXbhseMeIJzQk9TBGy1lNy-?usp=sharing)
 
+<img  src="https://github.com/user-attachments/assets/ad84e67f-e8cd-4e37-81c2-bf05b8478fee" alt="banner" width="700"/>
+
 Back to [Navigation](https://github.com/pengkenlim/TEA-GCN/?tab=readme-ov-file#navigation)
 
 ## Evaluating TEA-GCN Performance
