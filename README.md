@@ -28,11 +28,6 @@ For in-depth explanation and evaluation of the TEA-GCN methodology, please refer
   * [Step 3. Generating Partition Rankings for your edges-of-interest](https://github.com/pengkenlim/TEA-GCN/tree/main?tab=readme-ov-file#step-3-generating-partition-rankings-for-your-edges-of-interest)
   * [Step 4. Experimental context discovery using Google Colab notebook](https://github.com/pengkenlim/TEA-GCN/tree/main?tab=readme-ov-file#step-4-experimental-context-discovery-using-google-colab-notebook)
     
-* [Evaluating TEA-GCN Performance](https://github.com/pengkenlim/TEA-GCN/tree/main?tab=readme-ov-file#evaluating-tea-gcn-performance) :chart_with_upwards_trend:
-  * [Step 1. Preparing positive and negative edges](https://github.com/pengkenlim/TEA-GCN/tree/main?tab=readme-ov-file#step-1-preparing-positive-and-negative-edges)
-  * [Step 2. Calculating ROC and PRC performance](https://github.com/pengkenlim/TEA-GCN/)
-
-
 * [Citing TEA-GCN](https://github.com/pengkenlim/TEA-GCN/?tab=readme-ov-file#citing-tea-gcn)
 * [Complementary tools](https://github.com/pengkenlim/TEA-GCN/?tab=readme-ov-file#complementary-tools)
 * [Author and contact information](https://github.com/pengkenlim/TEA-GCN/?tab=readme-ov-file#Author-and-contact-information)
@@ -392,14 +387,6 @@ Refer to the Colab notebook (linked below) to uncover the Experimental contexts 
 
 Back to [Navigation](https://github.com/pengkenlim/TEA-GCN/?tab=readme-ov-file#navigation)
 
-## Evaluating TEA-GCN Performance
-
-### Step 1. Preparing positive and negative edges
-
-**COMING SOON**
-
-Back to [Navigation](https://github.com/pengkenlim/TEA-GCN/?tab=readme-ov-file#navigation)
-
 ## Citing TEA-GCN
 
 You can cite our preprint for now :)
@@ -407,12 +394,34 @@ You can cite our preprint for now :)
 ```
 Lim, P. K., Wang, R., Velankanni, J. P. A., & Mutwil, M. (2024).
 Constructing Ensemble Gene Functional Networks Capturing Tissue/condition-specific Co-expression from Unlabled Transcriptomic Data with TEA-GCN
-(p. 2024.07.22.604713).
-bioRxiv. https://doi.org/10.1101/2024.07.22.604713
+(p. 2024.07.22.604713). bioRxiv.
+https://doi.org/10.1101/2024.07.22.604713
 ```
 ## Complementary tools
 
-**COMING SOON**
+1. LSTrAP-Kingdom
+   * Download and process public RNA-seq samples to generate gene expression matrices for your species of interest
+   * [Github page](https://github.com/wgohome/plants-pipeline)
+   * [Publication](https://doi.org/10.1093/bioinformatics/btab168)
+   * Cite
+     ```
+     Goh W, Mutwil M. LSTrAP-Kingdom: an automated pipeline to generate annotated gene expression atlases for kingdoms of life.
+     Bioinforma Oxf Engl. 2021;37(18):3053-3055.
+     doi:10.1093/bioinformatics/btab168
+     ```
+2. LSTrAP-denovo
+   * Download and process public RNA-seq samples to generate gene expression matrices for your species of interest
+   * Designed for use for eukaryotic species without sequenced genomes. Employs _de novo_ transcriptome assembly to derive reference transcripts.
+   * [Github page](https://github.com/pengkenlim/LSTrAP-denovo/wiki/1.-Overview)
+   * [Publication](https://doi.org/10.1111/ppl.14407)
+   * Cite
+     ```
+     Lim, P. K., Wang, R., & Mutwil, M. (2024).
+     LSTrAP-denovo: Automated Generation of Transcriptome Atlases for Eukaryotic Species Without Genomes.
+     Physiologia Plantarum, 176(4), e14407.
+     https://doi.org/10.1111/ppl.14407
+     ```
+
 
 Back to [Navigation](https://github.com/pengkenlim/TEA-GCN/?tab=readme-ov-file#navigation)
 
