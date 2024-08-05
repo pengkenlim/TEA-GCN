@@ -71,7 +71,6 @@ You can download it from your browser using these links:
 1. [500 _Arabidopsis thaliana_ public RNA-seq samples](https://drive.google.com/file/d/1EuJPH772bsZaFqvQRzlcz7WptMCvOyjU/view?usp=sharing)
 2. [5,000 _Arabidopsis thaliana_ public RNA-seq samples](https://drive.google.com/file/d/1EoLwtAoyc_xH2f_S-cyV8xt6E9sisuGa/view?usp=sharing)
 
-```
 #### Simplest implementation
 ```
 $ python main/Generate_partitions.py --output_dir /path/to/output_directory --input_matrix_path /path/to/taxid3702_500n_expression_matrix.tsv
