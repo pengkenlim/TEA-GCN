@@ -399,7 +399,7 @@ https://doi.org/10.1101/2024.07.22.604713
 ```
 ## Complementary tools
 
-1. LSTrAP-Kingdom
+1. **LSTrAP-Kingdom**
    * Download and process public RNA-seq samples to generate gene expression matrices for your species of interest
    * [Github page](https://github.com/wgohome/plants-pipeline)
    * [Publication](https://doi.org/10.1093/bioinformatics/btab168)
@@ -409,7 +409,7 @@ https://doi.org/10.1101/2024.07.22.604713
      Bioinforma Oxf Engl. 2021;37(18):3053-3055.
      doi:10.1093/bioinformatics/btab168
      ```
-2. LSTrAP-denovo
+2. **LSTrAP-denovo**
    * Download and process public RNA-seq samples to generate gene expression matrices for your species of interest
    * Designed for use on eukaryotic species without sequenced genomes. Employs _de novo_ transcriptome assembly to derive reference transcripts.
    * [Github page](https://github.com/pengkenlim/LSTrAP-denovo/wiki/1.-Overview)
@@ -421,10 +421,10 @@ https://doi.org/10.1101/2024.07.22.604713
      Physiologia Plantarum, 176(4), e14407.
      https://doi.org/10.1111/ppl.14407
      ```
-2. PlantGCN
+2. **PlantGCN**
    * A web resource for users to predict functions of genes from 10 Plant Angiosperm species using gene co-expression neighbourhoods
    * Users can also access PlantCyc and Gene Ontology (GO) functional annotations for their genes of interest
-   * Hosts Experimental contexts predicted for A. thaliana
+   * Hosts Experimental contexts predicted for _A. thaliana_ genes
    * [Webpage](https://plantgcn.connectome.tools/)
    * cite
      ```
