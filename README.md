@@ -10,6 +10,7 @@
 This pipeline generates high-quality Gene Co-expression Networks (TEA-GCN ) that capture tissue/condition-specific co-expression.
 
 For in-depth explanation and evaluation of the TEA-GCN methodology, please refer to our [preprint](https://doi.org/10.1101/2024.07.22.604713) :newspaper:
+We host TEA-GCNs of 10 Plant Angiosperm species on the [PlantGCN](https://plantgcn.connectome.tools/) web resource. Users can predict functions of genes from these species based on their co-expression neighbourhoods.
 
 ## Navigation
 * [Generate TEA-GCN from your transcriptomic dataset](https://github.com/pengkenlim/TEA-GCN/tree/main?tab=readme-ov-file#generate-tea-gcn-from-your-transcriptomic-dataset) :arrow_forward:
@@ -426,7 +427,7 @@ https://doi.org/10.1101/2024.07.22.604713
    * Users can also access PlantCyc and Gene Ontology (GO) functional annotations for their genes of interest
    * Hosts Experimental contexts predicted for _A. thaliana_ genes
    * [Webpage](https://plantgcn.connectome.tools/)
-   * cite
+   * Cite
      ```
      Lim, P. K., Wang, R., Lim, S. C., Velankanni, J. P. A., & Mutwil, M. (2025).
      TEA-GCN: Constructing Accurate, Species-comparable, and Explainable Gene Regulatory and Functional Networks via Condition-Specific Ensemble Co-expression (p. 2024.07.22.604713).
