@@ -389,13 +389,13 @@ Back to [Navigation](https://github.com/pengkenlim/TEA-GCN/?tab=readme-ov-file#n
 
 ## Citing TEA-GCN
 
-You can cite our preprint for now :)
+You can cite our [preprint](https://doi.org/10.1101/2024.07.22.604713) for now :)
 
 ```
-Lim, P. K., Wang, R., Velankanni, J. P. A., & Mutwil, M. (2024).
-Constructing Ensemble Gene Functional Networks Capturing Tissue/condition-specific Co-expression from Unlabled Transcriptomic Data with TEA-GCN
-(p. 2024.07.22.604713). bioRxiv.
-https://doi.org/10.1101/2024.07.22.604713
+2.	Lim, P. K., Wang, R., Lim, S. C., Velankanni, J. P. A., & Mutwil, M. (2025).
+TEA-GCN: Constructing Accurate, Species-comparable, and Explainable Gene Regulatory and Functional Networks via Condition-Specific Ensemble Co-expression (p. 2024.07.22.604713).
+bioRxiv.
+https://doi.org/10.1101/2024.07.22.604713 
 ```
 ## Complementary tools
 
@@ -411,7 +411,7 @@ https://doi.org/10.1101/2024.07.22.604713
      ```
 2. LSTrAP-denovo
    * Download and process public RNA-seq samples to generate gene expression matrices for your species of interest
-   * Designed for use for eukaryotic species without sequenced genomes. Employs _de novo_ transcriptome assembly to derive reference transcripts.
+   * Designed for use on eukaryotic species without sequenced genomes. Employs _de novo_ transcriptome assembly to derive reference transcripts.
    * [Github page](https://github.com/pengkenlim/LSTrAP-denovo/wiki/1.-Overview)
    * [Publication](https://doi.org/10.1111/ppl.14407)
    * Cite
@@ -421,7 +421,19 @@ https://doi.org/10.1101/2024.07.22.604713
      Physiologia Plantarum, 176(4), e14407.
      https://doi.org/10.1111/ppl.14407
      ```
-
+2. PlantGCN
+   * A web resource for users to predict functions of genes from 10 Plant Angiosperm species using gene co-expression neighbourhoods
+   * Users can also access PlantCyc and Gene Ontology (GO) functional annotations for their genes of interest
+   * Hosts Experimental contexts predicted for A. thaliana
+   * [Webpage](https://plantgcn.connectome.tools/)
+   * cite
+     ```
+     Lim, P. K., Wang, R., Lim, S. C., Velankanni, J. P. A., & Mutwil, M. (2025).
+     TEA-GCN: Constructing Accurate, Species-comparable, and Explainable Gene Regulatory and Functional Networks via Condition-Specific Ensemble Co-expression (p. 2024.07.22.604713).
+     bioRxiv..
+     https://doi.org/10.1101/2024.07.22.604713 
+     
+     ```
 
 Back to [Navigation](https://github.com/pengkenlim/TEA-GCN/?tab=readme-ov-file#navigation)
 
