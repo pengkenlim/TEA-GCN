@@ -18,7 +18,6 @@ from einsumt import einsumt
 
 def calc_job_k(source_array, target_array, norm_weights_dict, cluster, threads):
     warnings.filterwarnings(action='ignore', message='Mean of empty slice')
-    #cor_values = np.einsum("ijk, ijk -> ij", norm_weights_dict[cluster][:,source_array,:], norm_weights_dict[cluster][:,target_array, :])
     cor_values = einsumt("ijk, ijk -> ij", np.take(norm_weights_dict[cluster], source_array , axis =1),
                          np.take(norm_weights_dict[cluster], target_array , axis =1), pool = threads)
     cor_means = np.nanmean(cor_values, axis=0)
@@ -106,28 +105,27 @@ def calc_job(k, aggregation_method, genes, network_path, gene_idx, gene, norm_we
         f.write(f"Target\t{aggregation_method}\tRank_of_target\n")
         for target, cor, ES, rank in zip(genes, All_cor_means, ensemble_scores ,ensemble_ranks):
             if full:
-                #f.write(f"{target}\t{cor}\t{ES}\t{rank}\n") #functionality not fleshed out yet
                 f.write(f"{target}\t{ES}\t{rank}\n")
             else:
                 f.write(f"{target}\t{ES}\t{rank}\n")
     return f"Calculated bicor {aggregation_method} for sequence:{gene}, {gene_idx} out of {len(genes)}"
 
 
-def calc_untargeted(k, genes , norm_weights_dict, aggregation_method, network_path, workers= 2):
+def calc_untargeted(k, genes , norm_weights_dict, aggregation_method, network_path, workers= 2, offset=0):
     threads = workers
     for gene_idx, gene in enumerate(genes):
-        result = calc_job( k, aggregation_method , genes, network_path, gene_idx, gene, norm_weights_dict, threads)
-        print(result)
+        if gene_idx >= offset:
+            result = calc_job( k, aggregation_method , genes, network_path, gene_idx, gene, norm_weights_dict, threads)
+            print(result)
 
 
-def build_ensemble_GCN( Tid2Gid_dict, k_cluster_assignment_dict, expmat_path, k, network_path, aggregation_method, delim, workers):
+def build_ensemble_GCN( Tid2Gid_dict, k_cluster_assignment_dict, expmat_path, k, network_path, aggregation_method, delim, workers, offset=0):
     genes, gene_dict , norm_weights_dict = precalc(expmat_path, Tid2Gid_dict, k_cluster_assignment_dict, k, delimiter=delim, workers=workers)
     print("Calculating and writing correlations...")
-    calc_untargeted(k, genes, norm_weights_dict, aggregation_method, network_path ,workers=workers)
+    calc_untargeted(k, genes, norm_weights_dict, aggregation_method, network_path ,workers=workers, offset=offset)
 
 def calc_job_k(source_array, target_array, norm_weights_dict, cluster, threads):
     warnings.filterwarnings(action='ignore', message='Mean of empty slice')
-    #cor_values = np.einsum("ijk, ijk -> ij", norm_weights_dict[cluster][:,source_array,:], norm_weights_dict[cluster][:,target_array, :])
     cor_values = einsumt("ijk, ijk -> ij", np.take(norm_weights_dict[cluster], source_array , axis =1),
                          np.take(norm_weights_dict[cluster], target_array , axis =1), pool = threads)
     cor_means = np.nanmean(cor_values, axis=0)
