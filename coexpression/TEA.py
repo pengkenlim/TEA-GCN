@@ -76,20 +76,20 @@ def array_mapper(ref_array ,  pertrubed_array_1, pertrubed_array_2):
     mapping_array_2 = np.array(mapping_array_2)
     return mapping_array_1,  mapping_array_2, unique_values_1, unique_values_2
 
-def calc_untargeted(k, PCC_genes, SCC_genes, bicor_genes, PCC_nominators_dict, PCC_denominators_dict,SCC_nominators_dict , SCC_denominators_dict,bicor_norm_weights_dict, aggregation_method, network_path, workers= 2):
+def calc_untargeted(k, PCC_genes, SCC_genes, bicor_genes, PCC_nominators_dict, PCC_denominators_dict,SCC_nominators_dict , SCC_denominators_dict,bicor_norm_weights_dict, aggregation_method, network_path, workers= 2, offset=0):
     threads = workers
     SCC_mapping_array , bicor_mapping_array ,SCC_mapping_dict  , bicor_mapping_dict= array_mapper(PCC_genes, SCC_genes, bicor_genes)
     for gene_idx, gene in enumerate(PCC_genes):
-        if True:
+        if gene_idx >= offset:
             print(gene_idx)
             result=calc_job(k, aggregation_method, PCC_genes,SCC_mapping_array,  bicor_mapping_array , SCC_mapping_dict, bicor_mapping_dict, network_path, gene_idx, gene, PCC_nominators_dict, PCC_denominators_dict,SCC_nominators_dict , SCC_denominators_dict,bicor_norm_weights_dict, threads ,full=False)
             print(result)
 
 
-def build_ensemble_GCN( Tid2Gid_dict, k_cluster_assignment_dict, expmat_path, k, network_path, aggregation_method, delim, workers):
+def build_ensemble_GCN( Tid2Gid_dict, k_cluster_assignment_dict, expmat_path, k, network_path, aggregation_method, delim, workers, offset=0):
     PCC_genes, PCC_gene_dict,SCC_genes, SCC_gene_dict, bicor_genes, bicor_gene_dict , PCC_nominators_dict, PCC_denominators_dict, SCC_nominators_dict, SCC_denominators_dict, bicor_norm_weights_dict = precalc(expmat_path, Tid2Gid_dict, k_cluster_assignment_dict, k, delimiter=delim, workers=workers)
     print("Calculating and writing correlations...")
-    calc_untargeted(k, PCC_genes, SCC_genes, bicor_genes, PCC_nominators_dict, PCC_denominators_dict,SCC_nominators_dict , SCC_denominators_dict,bicor_norm_weights_dict, aggregation_method, network_path, workers= workers)
+    calc_untargeted(k, PCC_genes, SCC_genes, bicor_genes, PCC_nominators_dict, PCC_denominators_dict,SCC_nominators_dict , SCC_denominators_dict,bicor_norm_weights_dict, aggregation_method, network_path, workers= workers, offset=offset)
 
 def calc_targeted(k, path, edges ,PCC_genes, PCC_gene_dict,SCC_genes, SCC_gene_dict, bicor_genes, bicor_gene_dict ,PCC_nominators_dict, PCC_denominators_dict,SCC_nominators_dict , SCC_denominators_dict,bicor_norm_weights_dict,threads ,workers= 2):
     warnings.filterwarnings(action='ignore', message='All-NaN slice encountered') 
@@ -121,16 +121,11 @@ def calc_targeted(k, path, edges ,PCC_genes, PCC_gene_dict,SCC_genes, SCC_gene_d
 
     ALL_cor_means = np.array(ALL_cor_means)
     
-    #batch_ensemble_scores = []
-    #for mode in ["Max", "Avg", "RAvg", "RWA", "RRWA"]:
-        #batch_ensemble_scores.append(ensemble.aggregate(ALL_cor_means, mode, axis = 0))
-    #batch_ensemble_scores = np.array(batch_ensemble_scores)
+
     with open(path, "a") as f:
         for idx, edge in enumerate(edges):
             cluster_cor = ALL_cor_means[:,idx]
-            #ensemble_scores = batch_ensemble_scores[:,idx]
             cluster_cor = ",".join([str(i) for i in cluster_cor])
-            #ensemble_scores = ",".join([str(i) for i in ensemble_scores])
             f.write(f"{edge}\t{cluster_cor}\n")
 
 def get_partition_coexp(k, positive_met_edges_cor_path ,expmat_path, Tid2Gid_dict,  k_cluster_assignment_dict, delim, workers, positive_met_edges, threads):
@@ -146,4 +141,3 @@ def get_partition_coexp(k, positive_met_edges_cor_path ,expmat_path, Tid2Gid_dic
         for chunk in positive_met_edges_chunks:
             calc_targeted(k, positive_met_edges_cor_path, chunk , 
                           PCC_genes, PCC_gene_dict,SCC_genes, SCC_gene_dict, bicor_genes, bicor_gene_dict ,  PCC_nominators_dict, PCC_denominators_dict,SCC_nominators_dict , SCC_denominators_dict,bicor_norm_weights_dict,threads ,workers=workers)
-
