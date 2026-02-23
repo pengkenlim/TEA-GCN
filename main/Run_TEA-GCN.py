@@ -39,6 +39,9 @@ if __name__ == "__main__":
         parser.add_argument("-im", "--input_matrix_path", type=str, metavar="", required = True,
         help = "Path of expression matrix to input" )
 
+        parser.add_argument("-res", "--resume", action="store_true",
+        help = "Resume incomplete run. Adding this flag Will initiate a scan for completed gene-co-expression neighbourhoods in the output directory and pick up from when the run was interrupted.")
+
         args=parser.parse_args()
         
         workers=args.workers
@@ -49,6 +52,7 @@ if __name__ == "__main__":
         k_clusters = args.k_clusters
         threads =  args.threads
         input_matrix_path = args.input_matrix_path
+        resume = args.resume
 
         #set threads and then import
         os.environ["MKL_NUM_THREADS"] = str(threads)
@@ -108,6 +112,16 @@ if __name__ == "__main__":
             build_ensemble_GCN = spearman.build_ensemble_GCN
         elif correlation_coefficient == "TEA":
             build_ensemble_GCN = TEA.build_ensemble_GCN
-
-        build_ensemble_GCN( Tid2Gid_dict, k_cluster_assignment_dict, expmat_path, k, network_path, aggregation_method, delim, workers)
+        if resume:
+            print("Resume option specified.")
+            #Scan output directory for completed gene neighbourhoods
+            completed_genes = os.listdir(network_path)
+            gene_list = list(Tid2Gid_dict.values())
+            completed_genes = [gene for gene in completed_genes if gene in gene_list]
+            offset = len(completed_genes) 
+            print(f"{offset} gene neighbourhoods out of {len(Tid2Gid_dict)} completed. Pipeline will resume from point of interruption after precalculation...") 
+            build_ensemble_GCN( Tid2Gid_dict, k_cluster_assignment_dict, expmat_path, k, network_path, aggregation_method, delim, workers, offset = offset)
+            
+        else:
+            build_ensemble_GCN( Tid2Gid_dict, k_cluster_assignment_dict, expmat_path, k, network_path, aggregation_method, delim, workers)
         
