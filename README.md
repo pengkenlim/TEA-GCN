@@ -9,7 +9,7 @@
 ## What does this pipeline do?
 This pipeline generates high-quality Gene Co-expression Networks (TEA-GCN ) that capture tissue/condition-specific co-expression.
 
-For in-depth explanation and evaluation of the TEA-GCN methodology, please refer to our [preprint](https://doi.org/10.1101/2024.07.22.604713) :newspaper:
+For in-depth explanation and evaluation of the TEA-GCN methodology, please refer to our recent [methods paper](https://doi.org/10.1038/s41467-026-72380-1) detailing TEA-GCN published in the esteemed _Nature Communications_ journal. Happy reading! :newspaper:
 
 Additionally, we host TEA-GCNs of 10 Plant Angiosperm species on the [PlantGCN](https://plantgcn.connectome.tools/) online database. Users can predict functions of genes from these species based on their co-expression neighbourhoods.
 
@@ -391,13 +391,13 @@ Back to [Navigation](https://github.com/pengkenlim/TEA-GCN/?tab=readme-ov-file#n
 
 ## Citing TEA-GCN
 
-You can cite our [preprint](https://doi.org/10.1101/2024.07.22.604713) for now :)
+TEA-GCN is peer-reviewed and [published](https://doi.org/10.1038/s41467-026-72380-1) now in the esteemed _Nature Communications_ journal. Happy reading!
 
 ```
-2.	Lim, P. K., Wang, R., Lim, S. C., Velankanni, J. P. A., & Mutwil, M. (2025).
-TEA-GCN: Constructing Accurate, Species-comparable, and Explainable Gene Regulatory and Functional Networks via Condition-Specific Ensemble Co-expression (p. 2024.07.22.604713).
-bioRxiv.
-https://doi.org/10.1101/2024.07.22.604713 
+Lim, P. K., Wang, R., Lim, S. C., Velankanni, J. P. A., & Mutwil, M. (2026).
+Constructing gene co-functional and co-regulatory networks from public transcriptomes using condition-specific ensemble co-expression (in press).
+Nature Communications.
+https://doi.org/10.1038/s41467-026-72380-1 
 ```
 ## Complementary tools
 
