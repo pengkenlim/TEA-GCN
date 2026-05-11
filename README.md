@@ -430,11 +430,10 @@ https://doi.org/10.1038/s41467-026-72380-1
    * [Webpage](https://plantgcn.connectome.tools/)
    * Cite
      ```
-     Lim, P. K., Wang, R., Lim, S. C., Velankanni, J. P. A., & Mutwil, M. (2025).
-     TEA-GCN: Constructing Accurate, Species-comparable, and Explainable Gene Regulatory and Functional Networks via Condition-Specific Ensemble Co-expression (p. 2024.07.22.604713).
-     bioRxiv..
-     https://doi.org/10.1101/2024.07.22.604713 
-     
+     Lim, P. K., Wang, R., Lim, S. C., Velankanni, J. P. A., & Mutwil, M. (2026).
+     Constructing gene co-functional and co-regulatory networks from public transcriptomes using condition-specific ensemble co-expression (in press).
+     Nature Communications.
+     https://doi.org/10.1038/s41467-026-72380-1 
      ```
 
 Back to [Navigation](https://github.com/pengkenlim/TEA-GCN/?tab=readme-ov-file#navigation)
