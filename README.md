@@ -14,6 +14,21 @@
 > python main/Run_TEA-GCN_fast.py   -o OUT -im matrix.tsv -t 20      # add -mz 1 to keep only edges with zScore >= 1
 > ```
 >
+> The completed network is written to `OUT/Completed_GCN/<NETWORK_NAME>/`, in the same format as `Rank_transform.py`.
+>
+> ```
+> usage: Run_TEA-GCN_fast.py [-h] -o  -im  [-de] [-k] [-t] [-mz] [-b]
+>
+>   -o , --output_dir     Directory to output. Must be the same as for Generate_partitions.py
+>   -im , --input_matrix_path
+>                         Path of expression matrix to input
+>   -de , --delimiter     "t" for tab-separated (.tsv, default), "c" for comma-separated (.csv)
+>   -k , --k_clusters     Number of partitions to use. 0 (default) uses the best k chosen by Generate_partitions.py
+>   -t , --threads        Number of worker processes. All CPUs by default
+>   -mz , --min_zscore    Only write edges with zScore(Co-exp_Str_MR) >= this value (e.g. 1). All edges by default
+>   -b , --block          Genes per work unit (0 = automatic)
+> ```
+>
 > | | Original | Fast |
 > |---|---|---|
 > | Intermediate files | Writes the full genes x genes network as text, then reads it back | Kept in memory; only the final files are written |
