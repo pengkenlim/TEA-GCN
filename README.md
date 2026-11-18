@@ -6,6 +6,23 @@
 
 <img src="https://github.com/user-attachments/assets/f31ae18f-5846-49d7-b597-3234a7035ab2" alt="banner" width="800"/>
 
+> [!NOTE]
+> **This fork adds `main/Run_TEA-GCN_fast.py`**, which replaces Step 3 (`Run_TEA-GCN.py`) and Step 4 (`Rank_transform.py`) with one parallel step. With the default settings, the output is the same as the original.
+>
+> ```
+> python main/Generate_partitions.py -o OUT -im matrix.tsv
+> python main/Run_TEA-GCN_fast.py   -o OUT -im matrix.tsv -t 20      # add -mz 1 to keep only edges with zScore >= 1
+> ```
+>
+> | | Original | Fast |
+> |---|---|---|
+> | Intermediate files | Writes the full genes x genes network as text, then reads it back | Kept in memory; only the final files are written |
+> | CPU | `Rank_transform.py` runs on 1 core | Every step runs in parallel |
+> | Memory | ~28 bytes per gene pair | ~4 bytes per gene pair |
+> | Example: 31,244 genes | ~11 h | 30 s (32 processes, 7 GB) |
+>
+> Supports only the defaults (`-cc TEA -am RAvg`, MR and zScore(MR); no HRR). Linux and macOS only.
+
 ## What does this pipeline do?
 This pipeline generates high-quality Gene Co-expression Networks (TEA-GCN ) that capture tissue/condition-specific co-expression.
 
